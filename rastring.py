@@ -104,8 +104,11 @@ class Space():
 
 for dimension in dimensiones:
     for ejecucion in ejecuciones:
-        search_space = Space(target, target_error, n_particles, dimension=dimension)
-        particles_vector = [Particle(dimension=dimension) for _ in range(search_space.n_particles)]
+        search_space = Space(target, target_error, n_particles, dimension=dimension, limite_inferior=limite_inferior,
+                             limite_superior=limite_superior)
+        particles_vector = [
+            Particle(dimension=dimension, limite_inferior=limite_inferior, limite_superior=limite_superior) for _ in
+            range(search_space.n_particles)]
         search_space.particles = particles_vector
         # search_space.print_particles()
 
